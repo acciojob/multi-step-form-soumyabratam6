@@ -33,7 +33,7 @@ function Step({ step, formData, handleInputChange, nextStep, prevStep, handleSub
         );
       case 2:
         return (
-          <Box id='step2'>
+          <Box id="step2">
             <Typography variant="h5" gutterBottom>
               Step 2: Car Information
             </Typography>
