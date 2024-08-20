@@ -8,7 +8,7 @@ function Step({ step, formData, handleInputChange, nextStep, prevStep, handleSub
     switch (step) {
       case 1:
         return (
-          <Box>
+          <Box id='step1'>
             <Typography variant="h5" gutterBottom>
               Step 1: User Information
             </Typography>
@@ -32,7 +32,7 @@ function Step({ step, formData, handleInputChange, nextStep, prevStep, handleSub
         );
       case 2:
         return (
-          <Box>
+          <Box id='step2'>
             <Typography variant="h5" gutterBottom>
               Step 2: Car Information
             </Typography>
@@ -56,7 +56,7 @@ function Step({ step, formData, handleInputChange, nextStep, prevStep, handleSub
         );
       case 3:
         return (
-          <Box>
+          <Box id='step3'>
             <Typography variant="h5" gutterBottom>
               Step 3: Payment Information
             </Typography>
@@ -84,11 +84,11 @@ function Step({ step, formData, handleInputChange, nextStep, prevStep, handleSub
   };
 
   return (
-    <Box>
+    <Box mt={2}>
       {renderStepContent()}
       <Box mt={2}>
         {step > 1 && (
-          <Button variant="contained" color="primary" onClick={prevStep} sx={{ mr: 2 }}>
+          <Button variant="contained" color="primary" onClick={prevStep} sx={{ mr: 2 }}  style={{ marginRight: '8px' }}>
             Previous
           </Button>
         )}
