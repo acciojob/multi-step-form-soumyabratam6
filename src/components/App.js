@@ -1,8 +1,7 @@
-
-import React, { useState } from "react";
-import { Container, Box, Button, TextField, Typography } from '@material-ui/core';
-import  Step from "./Step";
-const App = () => {
+import React, { useState } from 'react';
+import Step from './Step';
+ 
+function App() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     first_name: '',
@@ -12,33 +11,42 @@ const App = () => {
     card_info: '',
     expiry_date: ''
   });
-  const nextStep = () =>{
-    console.log("nextStep called");
-    setCurrentStep(prev => prev + 1);
-  } 
-  const prevStep = () => setCurrentStep(prev => prev - 1);
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
+ 
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setFormData({ ...formData, [id]: value });
   };
+ 
+  const handleNext = () => {
+    if (currentStep < 3) {
+      setCurrentStep(prevStep => prevStep + 1);
+    }
+  };
+ 
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(prevStep => prevStep - 1);
+    }
+  };
+ 
   const handleSubmit = () => {
-    console.log('Form Submitted:', formData);
-    // Add form submission logic here
-  }
+    alert('Form submitted!');
+    console.log(formData);
+  };
+ 
   return (
-    <Container maxWidth="sm">
-      <Box mt={4}>
-        <Step
-          step={currentStep}
-          formData={formData}
-          handleInputChange={handleInputChange}
-          nextStep={nextStep}
-          prevStep={prevStep}
-          handleSubmit={handleSubmit}
-        />
-      </Box>
-    </Container>
-  )
+    <div>
+      <h1>Multi-Step Form</h1>
+      <Step
+        step={currentStep}
+        formData={formData}
+        onChange={handleChange}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+        onSubmit={handleSubmit}
+      />
+    </div>
+  );
 }
-
-export default App
+ 
+export default App;
