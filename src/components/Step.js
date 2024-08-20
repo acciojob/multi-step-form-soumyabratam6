@@ -5,6 +5,7 @@ import React from 'react'
 
 function Step({ step, formData, handleInputChange, nextStep, prevStep, handleSubmit }) {
   const renderStepContent = () => {
+    console.log("Current step:", step);
     switch (step) {
       case 1:
         return (

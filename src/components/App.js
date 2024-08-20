@@ -12,7 +12,10 @@ const App = () => {
     card_info: '',
     expiry_date: ''
   });
-  const nextStep = () => setCurrentStep(prev => prev + 1);
+  const nextStep = () =>{
+    console.log("nextStep called");
+    setCurrentStep(prev => prev + 1);
+  } 
   const prevStep = () => setCurrentStep(prev => prev - 1);
   const handleInputChange = (e) => {
     const { id, value } = e.target;
